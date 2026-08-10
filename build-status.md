@@ -6,7 +6,7 @@
 - Build shape: Content-led site
 - Shape confirmation: Confirmed
 - Current KDBM Lite stage: Shipped
-- Current phase: Proof Recorded
+- Current phase: GitHub + Vercel Proof Complete
 - Current work card: None; KDBM Lite loop complete
 
 ## Completed work cards
@@ -111,7 +111,15 @@
 - Proof used: local dev server + production build + production preview fallback proof
 - Live Vercel URL: Not deployed in this session
 - GitHub repository URL: Not created or pushed in this session
+- GitHub repository created: `https://github.com/Bashar-ml-en/My_Portfolio`
+- GitHub push: `main` pushed successfully
+- Vercel project: `kdbm-lite-starter`
+- Vercel live alias: `https://kdbm-lite-starter.vercel.app`
+- Vercel production deployment: `https://kdbm-lite-starter-r688wds1t-bishas-projects-127e51f8.vercel.app`
+- Live alias test: HTTP 200
+- Production deployment test: HTTP 200
+- README proof: Added repository details, live URL, Vercel dashboard viewing steps, and live test checklist
 
 ## Next instruction for AI
 
-KDBM Lite loop complete. For stronger proof later, explicitly request GitHub init/commit/push and Vercel deployment, then use `prompts/08-github-vercel-proof.md`.
+KDBM Lite loop complete. GitHub repository and Vercel deployment proof are recorded. Use `https://kdbm-lite-starter.vercel.app` as the public portfolio URL.

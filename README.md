@@ -6,7 +6,9 @@ The portfolio is built to help recruiters and hiring managers quickly understand
 
 ## Live Portfolio
 
-The live Vercel URL will be added here after deployment.
+Live site: [https://kdbm-lite-starter.vercel.app](https://kdbm-lite-starter.vercel.app)
+
+Production deployment URL: [https://kdbm-lite-starter-r688wds1t-bishas-projects-127e51f8.vercel.app](https://kdbm-lite-starter-r688wds1t-bishas-projects-127e51f8.vercel.app)
 
 ## GitHub Repository
 
@@ -97,9 +99,11 @@ After deployment, Bashar can view the project in his Vercel account:
 
 1. Open [vercel.com/dashboard](https://vercel.com/dashboard).
 2. Sign in with the GitHub-connected Vercel account.
-3. Open the project named `my-portfolio` or `My_Portfolio`.
+3. Open the project named `kdbm-lite-starter`.
 4. Click the production deployment URL.
 5. Test the live site on desktop and mobile.
+
+The GitHub repository connected to this Vercel project is `Bashar-ml-en/My_Portfolio`.
 
 ## Live Site Test Checklist
 
