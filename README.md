@@ -6,7 +6,8 @@ The portfolio is built to help recruiters and hiring managers quickly understand
 
 ## Live Portfolio
 
-Live site: [https://kdbm-lite-starter.vercel.app](https://kdbm-lite-starter.vercel.app)
+Live site: [https://kdbm-lite-starter.vercel.app](https://bashar-my-portfolio
+.vercel.app)
 
 Production deployment URL: [https://kdbm-lite-starter-r688wds1t-bishas-projects-127e51f8.vercel.app](https://kdbm-lite-starter-r688wds1t-bishas-projects-127e51f8.vercel.app)
 
