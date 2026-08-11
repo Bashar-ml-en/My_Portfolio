@@ -313,8 +313,16 @@ function App() {
                 <h3>{group.category}</h3>
                 <div className="badge-row">
                   {group.items.map((item, itemIndex) => (
-                    <span className="skill-badge" style={{ '--stagger': `${itemIndex * 60}ms` }} key={item}>
-                      {item}
+                    <span
+                      className="skill-badge"
+                      style={{
+                        '--stagger': `${itemIndex * 60}ms`,
+                        '--brand-color': item.color,
+                      }}
+                      key={item.name}
+                    >
+                      <span className="skill-icon" aria-hidden="true">{item.icon}</span>
+                      <span>{item.name}</span>
                     </span>
                   ))}
                 </div>
