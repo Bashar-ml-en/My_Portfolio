@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kdbm-lite-starter.vercel.app/sitemap.xml
+Sitemap: https://my-portfolio.vercel.app/sitemap.xml
