@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Bashar portfolio favicon">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00f2fe" />
+      <stop offset="1" stop-color="#4facfe" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#07080f" />
+  <path d="M12 42 C20 24 28 25 35 34 S47 50 54 28" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" />
+  <text x="20" y="39" fill="#f5f7fa" font-family="Arial, sans-serif" font-size="24" font-weight="800">B</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Bashar — Machine Learning Engineer &amp; MLOps Practitioner</title>
+  <desc id="desc">Dark portfolio preview with cyan machine learning graph motif.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07080f" />
+      <stop offset="0.5" stop-color="#0b1020" />
+      <stop offset="1" stop-color="#07080f" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#00f2fe" />
+      <stop offset="1" stop-color="#4facfe" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1040" cy="90" r="210" fill="#00f2fe" opacity="0.14" />
+  <circle cx="140" cy="550" r="240" fill="#4facfe" opacity="0.12" />
+  <path d="M96 430 C210 220 326 242 438 328 S612 532 738 308 934 154 1102 242" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" />
+  <path d="M100 346 C270 416 334 250 468 228 S660 230 784 378 988 468 1100 330" fill="none" stroke="#9aa5b8" stroke-width="2" opacity="0.35" />
+  <g fill="#00f2fe" filter="url(#glow)">
+    <circle cx="96" cy="430" r="10" />
+    <circle cx="326" cy="242" r="10" />
+    <circle cx="520" cy="384" r="10" />
+    <circle cx="738" cy="308" r="10" />
+    <circle cx="934" cy="154" r="10" />
+    <circle cx="1102" cy="242" r="10" />
+  </g>
+  <text x="96" y="160" fill="#f5f7fa" font-family="Space Grotesk, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-4">Bashar</text>
+  <text x="96" y="230" fill="#dce8ff" font-family="Outfit, Arial, sans-serif" font-size="38" font-weight="700">Machine Learning Engineer &amp; MLOps Practitioner</text>
+  <text x="96" y="292" fill="#9aa5b8" font-family="Outfit, Arial, sans-serif" font-size="28">End-to-end ML systems, APIs, dashboards, and production proof.</text>
+  <rect x="96" y="344" width="312" height="56" rx="28" fill="url(#accent)" />
+  <text x="126" y="381" fill="#07080f" font-family="Outfit, Arial, sans-serif" font-size="24" font-weight="800">View Portfolio</text>
+</svg>

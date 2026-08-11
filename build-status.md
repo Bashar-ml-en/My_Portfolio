@@ -122,7 +122,10 @@
 - Redesign pass: Upgraded portfolio to a stronger scalable ML systems layout with sticky navigation, production-signal hero, proof metrics, system capability cards, enhanced project hierarchy, and expanded responsive design system
 - Redesign build: `npm run build` succeeded
 - Redesign local dev server: HTTP 200 at `http://127.0.0.1:5173/`
+- Refactor pass: Added `src/styles/tokens.css`, typed data files in `src/data/`, reusable primitives, data-driven rendering, ML pipeline motif, cursor-aware card glow, expandable project details, metric count-up, GitHub stats loading fallback, favicon, OG preview image, robots.txt, and sitemap.xml
+- Refactor build: `npm run build` succeeded
+- Refactor local dev server: HTTP 200 at `http://127.0.0.1:5173/`
 
 ## Next instruction for AI
 
-KDBM Lite loop complete. GitHub repository and Vercel deployment proof are recorded. Latest redesign should be pushed and deployed to `https://kdbm-lite-starter.vercel.app`.
+KDBM Lite loop complete. GitHub repository and Vercel deployment proof are recorded. Latest tokenized refactor should be pushed and deployed to `https://kdbm-lite-starter.vercel.app`.

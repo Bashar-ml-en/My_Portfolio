@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+  --bg: #07080f;
+  --bg-elevated: #0b1020;
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-violet: #9b7cff;
+  --text-primary: #f5f7fa;
+  --text-secondary: #9aa5b8;
+  --text-soft: #dce8ff;
+  --surface-glass: rgba(255, 255, 255, 0.04);
+  --surface-glass-strong: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(0, 242, 254, 0.35);
+  --glow-cyan: rgba(0, 242, 254, 0.35);
+  --glow-blue: rgba(79, 172, 254, 0.24);
+  --shadow-panel: 0 30px 90px rgba(0, 0, 0, 0.36);
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --text-hero: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display: clamp(3rem, 8vw, 7.35rem);
+  --text-h2: clamp(1.75rem, 3.5vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body: clamp(1rem, 1.2vw, 1.125rem);
+  --text-small: 0.875rem;
+  --text-micro: 0.75rem;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1200px;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 34px;
+  --radius-xl: 44px;
+}
