@@ -119,7 +119,10 @@
 - Live alias test: HTTP 200
 - Production deployment test: HTTP 200
 - README proof: Added repository details, live URL, Vercel dashboard viewing steps, and live test checklist
+- Redesign pass: Upgraded portfolio to a stronger scalable ML systems layout with sticky navigation, production-signal hero, proof metrics, system capability cards, enhanced project hierarchy, and expanded responsive design system
+- Redesign build: `npm run build` succeeded
+- Redesign local dev server: HTTP 200 at `http://127.0.0.1:5173/`
 
 ## Next instruction for AI
 
-KDBM Lite loop complete. GitHub repository and Vercel deployment proof are recorded. Use `https://kdbm-lite-starter.vercel.app` as the public portfolio URL.
+KDBM Lite loop complete. GitHub repository and Vercel deployment proof are recorded. Latest redesign should be pushed and deployed to `https://kdbm-lite-starter.vercel.app`.
