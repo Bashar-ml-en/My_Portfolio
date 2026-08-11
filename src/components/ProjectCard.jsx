@@ -96,11 +96,9 @@ export function ProjectCard({ project, labels, index }) {
         {project.flagship && <Badge className="badge-strong">Flagship System</Badge>}
       </div>
 
-      {project.flagship && (
-        <div className="timeline-preview" aria-label="Rain probability timeline preview">
-          <PipelineMotif compact />
-        </div>
-      )}
+      <div className="timeline-preview" aria-label={`${project.title} pipeline visualization`}>
+        <PipelineMotif compact />
+      </div>
 
       <h3>{project.title}</h3>
       <p className="project-desc">{project.description}</p>

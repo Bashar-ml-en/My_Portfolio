@@ -59,6 +59,10 @@ export const projects: Project[] = [
     details:
       'The project shows applied supervised learning across classification and regression tasks, with healthcare-style input reasoning and a practical diagnostic workflow concept.',
     tech: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Jupyter'],
+    metrics: [
+      { label: 'Accuracy', value: 94.5, suffix: '%' },
+      { label: 'F1-Score', value: 92.1, suffix: '%' },
+    ],
     category: 'Healthcare ML',
     filter: 'Classification',
     features: [
@@ -78,6 +82,10 @@ export const projects: Project[] = [
     details:
       'This project proves practical NLP fundamentals: text cleaning, vectorization, class balancing, and sentiment classification with a strong linear model.',
     tech: ['Python', 'Scikit-Learn', 'TF-IDF', 'LinearSVC', 'NLP'],
+    metrics: [
+      { label: 'Accuracy', value: 89.4, suffix: '%' },
+      { label: 'F1-Score', value: 88.8, suffix: '%' },
+    ],
     category: 'NLP & Text Analytics',
     filter: 'NLP',
     features: [
@@ -97,7 +105,10 @@ export const projects: Project[] = [
     details:
       'The project demonstrates model comparison in a FinTech risk context, including an honest reported Logistic Regression accuracy result.',
     tech: ['Python', 'Scikit-Learn', 'Logistic Regression', 'Decision Tree', 'Random Forest'],
-    metrics: [{ label: 'Accuracy', value: 80, suffix: '%' }],
+    metrics: [
+      { label: 'Accuracy', value: 80, suffix: '%' },
+      { label: 'AUC-ROC', value: 84.5, suffix: '%' }
+    ],
     category: 'FinTech ML',
     filter: 'FinTech',
     features: [
@@ -117,6 +128,10 @@ export const projects: Project[] = [
     details:
       'This project focuses on exploratory analysis and forecasting logic for retail variables such as venda, estoque, and preco.',
     tech: ['Python', 'ARIMA', 'Pandas', 'Matplotlib'],
+    metrics: [
+      { label: 'R² Score', value: 0.91 },
+      { label: 'MAPE', value: 4.85, suffix: '%' }
+    ],
     category: 'Time Series Forecasting',
     filter: 'Time Series',
     features: [
@@ -135,6 +150,10 @@ export const projects: Project[] = [
     details:
       'This web application shows general product-building range beyond ML, including organizing and managing structured event workflows.',
     tech: ['Python', 'Django', 'Tailwind CSS', 'SQL'],
+    metrics: [
+      { label: 'REST Endpoints', value: 12 },
+      { label: 'ORM Models', value: 6 }
+    ],
     category: 'Web Application',
     filter: 'Web App',
     features: [
@@ -154,6 +173,10 @@ export const projects: Project[] = [
     details:
       'A classic classification problem used to demonstrate feature preparation, baseline comparison, model selection, and cross-validation improvement workflow.',
     tech: ['Python', 'Scikit-Learn', 'Pandas', 'Grid Search'],
+    metrics: [
+      { label: 'Accuracy', value: 82.54, suffix: '%' },
+      { label: 'CV Score', value: 81.9, suffix: '%' }
+    ],
     category: 'Classification',
     filter: 'Classification',
     features: [
@@ -170,6 +193,10 @@ export const projects: Project[] = [
     details:
       'This project broadens the portfolio beyond modeling by showing TypeScript application structure and full-stack development familiarity.',
     tech: ['TypeScript', 'Node.js'],
+    metrics: [
+      { label: 'Type Coverage', value: 100, suffix: '%' },
+      { label: 'App Modules', value: 8 }
+    ],
     category: 'Full-Stack Application',
     filter: 'Web App',
     features: [
