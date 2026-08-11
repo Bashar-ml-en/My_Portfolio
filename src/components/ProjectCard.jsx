@@ -91,6 +91,7 @@ export function ProjectCard({ project, labels, index }) {
     >
       <div className="project-card-topline">
         <Badge>{project.category}</Badge>
+        {project.status && <Badge className="badge-status">{project.status}</Badge>}
         {project.flagship && <Badge className="badge-strong">Flagship System</Badge>}
       </div>
 
@@ -101,7 +102,7 @@ export function ProjectCard({ project, labels, index }) {
       )}
 
       <h3>{project.title}</h3>
-      <p>{project.description}</p>
+      <p className="project-desc">{project.description}</p>
 
       {project.metrics && (
         <div className="metric-row" aria-label={`${project.title} metrics`}>
@@ -142,7 +143,25 @@ export function ProjectCard({ project, labels, index }) {
       </div>
 
       <div className={`project-details ${expanded ? 'expanded' : ''}`} id={detailsId} hidden={!expanded}>
-        <p>{project.details}</p>
+        <p className="details-text">{project.details}</p>
+
+        {project.architecture && (
+          <div className="architecture-box">
+            <span className="box-label">&gt; SYSTEM ARCHITECTURE</span>
+            <code>{project.architecture}</code>
+          </div>
+        )}
+
+        {project.features && (
+          <div className="features-box">
+            <span className="box-label">KEY SYSTEM FEATURES</span>
+            <ul>
+              {project.features.map((feat) => (
+                <li key={feat}>{feat}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </GlassCard>
   )
