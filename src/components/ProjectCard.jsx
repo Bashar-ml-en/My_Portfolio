@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Badge, Button, GlassCard, Pill, PipelineMotif } from './Primitives.jsx'
+import { getTechMeta } from '../data/skills.ts'
 
 function useCountUp(metrics, active) {
   const [values, setValues] = useState(() => metrics?.map(() => 0) ?? [])
@@ -116,9 +117,14 @@ export function ProjectCard({ project, labels, index }) {
       )}
 
       <div className="tech-pills" aria-label={`${project.title} technologies`}>
-        {project.tech.map((item) => (
-          <Pill key={item}>{item}</Pill>
-        ))}
+        {project.tech.map((item) => {
+          const meta = getTechMeta(item)
+          return (
+            <Pill key={item} color={meta.color} icon={meta.icon}>
+              {item}
+            </Pill>
+          )
+        })}
       </div>
 
       <div className="project-actions">

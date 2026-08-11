@@ -15,8 +15,17 @@ export function Badge({ children, className = '' }) {
   return <span className={`badge ${className}`.trim()}>{children}</span>
 }
 
-export function Pill({ children, className = '' }) {
-  return <span className={`pill ${className}`.trim()}>{children}</span>
+export function Pill({ children, className = '', color, icon, style = {}, ...props }) {
+  const customStyle = color
+    ? { '--brand-color': color, ...style }
+    : style
+
+  return (
+    <span className={`pill ${className}`.trim()} style={customStyle} {...props}>
+      {icon && <span className="pill-icon" aria-hidden="true">{icon}</span>}
+      <span>{children}</span>
+    </span>
+  )
 }
 
 export function Button({ as: Component = 'a', variant = 'primary', className = '', children, ...props }) {
