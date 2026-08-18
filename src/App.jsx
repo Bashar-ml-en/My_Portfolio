@@ -5,11 +5,14 @@ import { GitHubStats } from './components/GitHubStats.jsx'
 import { ProfilePhoto } from './components/ProfilePhoto.jsx'
 import { Button, GlassCard, PipelineMotif, SectionHeading } from './components/Primitives.jsx'
 import { ProjectCard } from './components/ProjectCard.jsx'
+import { CertificateCard } from './components/CertificateCard.jsx'
+import { CertificateModal } from './components/CertificateModal.jsx'
 import { ScrollProgress } from './components/ScrollProgress.jsx'
 import { TypeWriter } from './components/TypeWriter.jsx'
 import { githubStatsUrl, profile } from './data/profile.ts'
 import { filters, projects } from './data/projects.ts'
 import { skillGroups } from './data/skills.ts'
+import { certificateCategories, certificates } from './data/certificates.ts'
 
 /* ── SVG icons ────────────────────────────────────────────── */
 function LinkedInIcon() {
@@ -85,6 +88,8 @@ function useActiveSection(sectionIds) {
 /* ── Main App ─────────────────────────────────────────────── */
 function App() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [activeCertCategory, setActiveCertCategory] = useState('All')
+  const [selectedCertModal, setSelectedCertModal] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
 
   const sectionIds = useMemo(() => profile.nav.map((item) => item.href.replace('#', '')), [])
@@ -94,6 +99,12 @@ function App() {
     const filtered = activeFilter === 'All' ? projects : projects.filter((project) => project.filter === activeFilter)
     return [...filtered].sort((a, b) => Number(Boolean(b.flagship)) - Number(Boolean(a.flagship)))
   }, [activeFilter])
+
+  const visibleCertificates = useMemo(() => {
+    return activeCertCategory === 'All'
+      ? certificates
+      : certificates.filter((cert) => cert.category === activeCertCategory)
+  }, [activeCertCategory])
 
   /* Reveal-on-scroll */
   useEffect(() => {
@@ -358,6 +369,46 @@ function App() {
             ))}
           </div>
         </section>
+
+        {/* Certificates */}
+        <section className="section-panel certificates-section reveal" id="certificates" aria-labelledby="certificates-title">
+          <SectionHeading
+            split
+            label={profile.sections.certificates.label}
+            title={profile.sections.certificates.title}
+            text={profile.sections.certificates.text}
+          />
+          <div className="filter-row" aria-label="Certificate category filters">
+            {certificateCategories.map((cat) => (
+              <button
+                className={cat === activeCertCategory ? 'filter-button active' : 'filter-button'}
+                key={cat}
+                type="button"
+                aria-pressed={cat === activeCertCategory}
+                onClick={() => setActiveCertCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <div className="certificates-grid" aria-live="polite">
+            {visibleCertificates.map((cert, index) => (
+              <CertificateCard
+                certificate={cert}
+                onOpenModal={setSelectedCertModal}
+                index={index}
+                key={cert.id}
+              />
+            ))}
+          </div>
+        </section>
+
+        {selectedCertModal && (
+          <CertificateModal
+            certificate={selectedCertModal}
+            onClose={() => setSelectedCertModal(null)}
+          />
+        )}
 
         {/* Contact */}
         <section className="contact-section reveal" id="contact" aria-labelledby="contact-title">

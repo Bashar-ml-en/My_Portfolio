@@ -31,6 +31,7 @@ export type Profile = {
     systems: { label: string; title: string }
     stack: { label: string; title: string; text: string }
     projects: { label: string; title: string; text: string }
+    certificates: { label: string; title: string; text: string }
     contact: { label: string; title: string; text: string }
   }
   ui: {
@@ -76,11 +77,12 @@ export const profile: Profile = {
     { label: 'Systems', href: '#systems' },
     { label: 'Stack', href: '#stack' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Certificates', href: '#certificates' },
     { label: 'Contact', href: '#contact' },
   ],
   proofStats: [
     { value: '8', label: 'End-to-End ML Systems', numeric: 8 },
-    { value: '5', label: 'Specialized ML Domains', numeric: 5 },
+    { value: '5', label: 'Verified Coursera Certs', numeric: 5 },
     { value: '10', label: 'Production Stack Tools', numeric: 10, suffix: '+' },
     { value: '100', label: 'Reproducible Code Evidence', numeric: 100, suffix: '%' },
   ],
@@ -116,6 +118,11 @@ export const profile: Profile = {
       label: 'Featured Projects',
       title: 'Project evidence organized for fast recruiter review.',
       text: "Filter Bashar's work by system type and inspect the projects that demonstrate production thinking, modeling, APIs, dashboards, and data workflows.",
+    },
+    certificates: {
+      label: 'Certifications & Credentials',
+      title: 'Verified IBM & KodeKloud Coursera Certifications.',
+      text: 'Verified professional certifications covering Machine Learning, Deep Learning & Keras, MLOps Model Tracking, Data Engineering, and SQL Databases.',
     },
     contact: {
       label: 'Get In Touch',
