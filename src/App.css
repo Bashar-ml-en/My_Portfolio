@@ -1450,52 +1450,174 @@ h3 {
   line-height: 1.55;
 }
 
-/* Hackathon Event Photo Showcase */
-.hackathon-photo-wrapper {
-  margin: var(--space-2) 0 var(--space-3);
+/* Hackathon Card Top Section with Right Corner Photo */
+.hackathon-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(12px, 2vw, 24px);
+  margin-bottom: var(--space-2);
 }
 
-.hackathon-photo-container {
+.hackathon-top-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.hackathon-corner-photo-wrapper {
+  flex-shrink: 0;
+}
+
+.hackathon-corner-photo-btn {
   position: relative;
-  overflow: hidden;
+  display: block;
+  width: 190px;
+  height: 115px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-glass);
-  border-top: 1px solid rgba(0, 240, 255, 0.3);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
-  max-height: 420px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.4);
   background: #000000;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.7);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard);
 }
 
-.hackathon-photo {
-  display: block;
+.hackathon-corner-photo-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 12px 30px -4px rgba(0, 240, 255, 0.35);
+}
+
+.hackathon-corner-photo {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  transition: transform var(--duration-slow) var(--ease-standard);
+  display: block;
 }
 
-.hackathon-photo-container:hover .hackathon-photo {
-  transform: scale(1.02);
+.corner-photo-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.04em;
 }
 
-.hackathon-photo-overlay {
+.corner-photo-zoom-hint {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(180deg, transparent, rgba(7, 10, 18, 0.9) 65%, rgba(7, 10, 18, 0.98));
-  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85) 60%);
+  color: var(--accent-cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 6px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
-.hackathon-photo-overlay span {
-  display: block;
+.hackathon-corner-photo-btn:hover .corner-photo-zoom-hint {
+  opacity: 1;
+}
+
+/* Hackathon Photo Lightbox Modal */
+.hackathon-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeIn 0.2s ease;
+}
+
+.hackathon-lightbox-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  background: rgba(11, 16, 30, 0.98);
+  border: 1px solid rgba(0, 240, 255, 0.45);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hackathon-lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.hackathon-lightbox-close:hover {
+  background: var(--accent-coral);
+  border-color: var(--accent-coral);
+  transform: scale(1.1);
+}
+
+.hackathon-lightbox-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000000;
+}
+
+.hackathon-lightbox-caption {
+  padding: 16px 20px;
+  background: rgba(7, 10, 18, 0.95);
+  border-top: 1px solid var(--border-glass);
+}
+
+.hackathon-lightbox-caption p {
+  margin: 0;
   color: #f1f5f9;
   font-size: var(--text-small);
-  font-weight: 800;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hackathon-card-top {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .hackathon-corner-photo-btn {
+    width: 100%;
+    height: 160px;
+    margin-bottom: var(--space-2);
+  }
 }
 
 /* Operating Workflow Visualizer */

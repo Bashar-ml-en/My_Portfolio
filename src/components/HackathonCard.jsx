@@ -4,6 +4,7 @@ import { Badge, Button, GlassCard, Pill } from './Primitives.jsx'
 export function HackathonCard({ hackathon, index }) {
   const [expanded, setExpanded] = useState(false)
   const [activeStepIndex, setActiveStepIndex] = useState(0)
+  const [photoModalOpen, setPhotoModalOpen] = useState(false)
 
   const detailsId = `hackathon-details-${hackathon.id}`
 
@@ -13,22 +14,50 @@ export function HackathonCard({ hackathon, index }) {
       className={`hackathon-card cursor-glow ${hackathon.id === 'autoguard-ai' ? 'hackathon-card-spotlight' : ''}`}
       style={{ '--stagger': `${index * 80}ms` }}
     >
-      {/* Topline Badges */}
-      <div className="hackathon-card-header">
-        <div className="hackathon-badge-group">
-          <span className="hackathon-event-badge" style={{ background: hackathon.badgeColor }}>
-            🏆 {hackathon.hackathon}
-          </span>
-          <span className="hackathon-track-badge">
-            {hackathon.track}
-          </span>
-        </div>
-      </div>
+      {/* Top Header & Right Corner Photo Layout */}
+      <div className="hackathon-card-top">
+        <div className="hackathon-top-main">
+          {/* Topline Badges */}
+          <div className="hackathon-card-header">
+            <div className="hackathon-badge-group">
+              <span className="hackathon-event-badge" style={{ background: hackathon.badgeColor }}>
+                🏆 {hackathon.hackathon}
+              </span>
+              <span className="hackathon-track-badge">
+                {hackathon.track}
+              </span>
+            </div>
+          </div>
 
-      {/* Main Title & Tagline */}
-      <div className="hackathon-headline">
-        <h3>{hackathon.title}</h3>
-        <p className="hackathon-tagline">{hackathon.tagline}</p>
+          {/* Main Title & Tagline */}
+          <div className="hackathon-headline">
+            <h3>{hackathon.title}</h3>
+            <p className="hackathon-tagline">{hackathon.tagline}</p>
+          </div>
+        </div>
+
+        {/* Right Corner Photo Thumbnail */}
+        {hackathon.image && (
+          <div className="hackathon-corner-photo-wrapper">
+            <button
+              type="button"
+              className="hackathon-corner-photo-btn"
+              onClick={() => setPhotoModalOpen(true)}
+              title="Click to view full event photo"
+              aria-label={`View full event photo for ${hackathon.hackathon}`}
+            >
+              <img
+                src={hackathon.image}
+                alt={hackathon.imageCaption || hackathon.title}
+                className="hackathon-corner-photo"
+                loading="lazy"
+                decoding="async"
+              />
+              <span className="corner-photo-badge">📸 Event Photo</span>
+              <span className="corner-photo-zoom-hint">🔍 Expand</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Metrics Row */}
@@ -52,26 +81,6 @@ export function HackathonCard({ hackathon, index }) {
           <p>{hackathon.solution}</p>
         </div>
       </div>
-
-      {/* Hackathon Event Photo Showcase if present */}
-      {hackathon.image && (
-        <div className="hackathon-photo-wrapper">
-          <div className="hackathon-photo-container">
-            <img
-              src={hackathon.image}
-              alt={hackathon.imageCaption || hackathon.title}
-              className="hackathon-photo"
-              loading="lazy"
-              decoding="async"
-            />
-            {hackathon.imageCaption && (
-              <div className="hackathon-photo-overlay">
-                <span>{hackathon.imageCaption}</span>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Operating Workflow Visualizer */}
       <div className="hackathon-operating-container">
@@ -169,6 +178,39 @@ export function HackathonCard({ hackathon, index }) {
           </div>
         </div>
       )}
+
+      {/* High-Resolution Photo Lightbox Modal */}
+      {photoModalOpen && hackathon.image && (
+        <div
+          className="hackathon-lightbox-backdrop"
+          onClick={() => setPhotoModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Hackathon Event Photo"
+        >
+          <div className="hackathon-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="hackathon-lightbox-close"
+              onClick={() => setPhotoModalOpen(false)}
+              aria-label="Close photo preview"
+            >
+              ✕
+            </button>
+            <img
+              src={hackathon.image}
+              alt={hackathon.imageCaption || hackathon.title}
+              className="hackathon-lightbox-img"
+            />
+            {hackathon.imageCaption && (
+              <div className="hackathon-lightbox-caption">
+                <p>{hackathon.imageCaption}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </GlassCard>
   )
 }
+
