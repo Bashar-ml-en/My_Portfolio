@@ -1,46 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
 /* ──────────────────────────────────────────────────────────────
-   Industry Standard Palette: Modern Dark Mode (Vercel / Linear / OpenAI aesthetic)
+   Autonomous AI & Machine Learning Engineer Design System Tokens
    ────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Canvas & Elevated Surfaces */
-  --bg: #06080e;
-  --bg-elevated: #0e131f;
-  --bg-card: rgba(14, 19, 31, 0.65);
+  /* Canvas & Elevated Obsidian Surfaces */
+  --bg: #070a12;
+  --bg-elevated: #0d1322;
+  --bg-card: rgba(13, 19, 34, 0.82);
+  --bg-card-hover: rgba(18, 26, 46, 0.95);
 
-  /* Luminous Tech Accents (Sky Cyan, Neural Indigo, Violet, Emerald) */
-  --accent-cyan: #00e5ff;
-  --accent-blue: #6366f1;
-  --accent-violet: #a855f7;
-  --accent-green: #10b981;
+  /* Luminous AI Accents */
+  --accent-cyan: #00f0ff;       /* Autonomous agent streaming & interaction */
+  --accent-blue: #38bdf8;       /* Cloud & LLM API endpoints */
+  --accent-indigo: #6366f1;     /* Deep neural networks & DAG pipelines */
+  --accent-violet: #a855f7;     /* Multi-modal synthesis */
+  --accent-green: #10b981;      /* Safety benchmarks & passing tests */
+  --accent-amber: #f59e0b;      /* Time series & ML metrics */
+  --accent-coral: #f43f5e;      /* Red-teaming & vulnerability audits */
 
-  /* Typography Hierarchy (High Contrast Slate) */
-  --text-primary: #f8fafc;
+  /* Google Hackathon 4-Color Brand Signatures */
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
+
+  /* Typography Hierarchy (Ultra High Contrast) */
+  --text-primary: #ffffff;
   --text-secondary: #94a3b8;
-  --text-soft: #cbd5e1;
+  --text-soft: #e2e8f0;
   --text-muted: #64748b;
 
-  /* Glassmorphism & Borders */
-  --surface-glass: rgba(255, 255, 255, 0.035);
-  --surface-glass-strong: rgba(255, 255, 255, 0.07);
-  --border-glass: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(0, 229, 255, 0.4);
-  --border-subtle: rgba(255, 255, 255, 0.05);
+  /* Glassmorphism & High-Tech Borders */
+  --surface-glass: rgba(13, 19, 34, 0.78);
+  --surface-glass-strong: rgba(18, 26, 46, 0.92);
+  --border-glass: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(0, 240, 255, 0.45);
+  --border-subtle: rgba(255, 255, 255, 0.06);
 
   /* Ambient Glow & Shadow Tokens */
-  --glow-cyan: rgba(0, 229, 255, 0.35);
-  --glow-blue: rgba(99, 102, 241, 0.28);
-  --shadow-panel: 0 25px 70px -10px rgba(0, 0, 0, 0.65);
+  --glow-cyan: rgba(0, 240, 255, 0.35);
+  --glow-blue: rgba(56, 189, 248, 0.28);
+  --glow-indigo: rgba(99, 102, 241, 0.32);
+  --glow-green: rgba(16, 185, 129, 0.3);
+  --shadow-panel: 0 20px 60px -10px rgba(0, 0, 0, 0.7);
 
   /* Typography Fonts & Scale */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Outfit', sans-serif;
-  --text-hero: clamp(2rem, 4vw, 3.25rem);
-  --text-display: clamp(2.25rem, 4.2vw, 3.5rem);
-  --text-h2: clamp(1.5rem, 2.5vw, 2.25rem);
-  --text-h3: clamp(1.15rem, 1.8vw, 1.35rem);
+  --font-mono: 'JetBrains Mono', monospace;
+  --text-hero: clamp(2rem, 4.2vw, 3.4rem);
+  --text-display: clamp(2.25rem, 4.4vw, 3.6rem);
+  --text-h2: clamp(1.5rem, 2.6vw, 2.3rem);
+  --text-h3: clamp(1.2rem, 1.8vw, 1.45rem);
   --text-body: clamp(0.95rem, 1.2vw, 1.05rem);
   --text-small: 0.875rem;
   --text-micro: 0.75rem;
@@ -67,8 +80,8 @@
   --duration-slow: 400ms;
   --duration-slower: 700ms;
 
-  --radius-sm: 16px;
-  --radius-md: 24px;
-  --radius-lg: 34px;
-  --radius-xl: 44px;
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-xl: 40px;
 }

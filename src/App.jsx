@@ -107,31 +107,39 @@ function App() {
       : certificates.filter((cert) => cert.category === activeCertCategory)
   }, [activeCertCategory])
 
-  /* Reveal-on-scroll */
+  /* Reveal-on-scroll with resilient immediate activation */
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll('.reveal'))
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    if (reduceMotion) {
+    if (reduceMotion || !('IntersectionObserver' in window)) {
       revealItems.forEach((item) => item.classList.add('visible'))
       return undefined
     }
 
+    // Immediately mark top/in-viewport sections visible
+    revealItems.forEach((item) => {
+      const rect = item.getBoundingClientRect()
+      if (rect.top < window.innerHeight + 200) {
+        item.classList.add('visible')
+      }
+    })
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting || entry.intersectionRatio > 0) {
             entry.target.classList.add('visible')
             observer.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0.16 },
+      { threshold: 0.01, rootMargin: '100px 0px 100px 0px' },
     )
 
     revealItems.forEach((item) => observer.observe(item))
     return () => observer.disconnect()
-  }, [activeFilter])
+  }, [activeFilter, activeCertCategory])
 
   /* Close mobile menu on nav click */
   const handleNavClick = useCallback(() => {
