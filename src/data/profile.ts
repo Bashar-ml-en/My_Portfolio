@@ -27,6 +27,7 @@ export type Profile = {
   proofStats: Array<{ value: string; label: string; numeric: number; suffix?: string }>
   capabilities: Array<{ title: string; text: string; icon: string }>
   sections: {
+    hackathons: { label: string; title: string; text: string }
     about: { label: string; title: string }
     systems: { label: string; title: string }
     stack: { label: string; title: string; text: string }
@@ -78,6 +79,7 @@ export const profile: Profile = {
   },
   nav: [
     { label: 'Home', href: '#hero' },
+    { label: 'Hackathons', href: '#hackathons' },
     { label: 'Projects', href: '#projects' },
     { label: 'Stack', href: '#stack' },
     { label: 'Systems', href: '#systems' },
@@ -114,6 +116,11 @@ export const profile: Profile = {
     },
   ],
   sections: {
+    hackathons: {
+      label: 'CHAMPIONSHIP HACKATHONS & INNOVATIONS',
+      title: 'Hackathon Systems & Operating Architecture',
+      text: 'Production-ready AI agents and intelligence platforms engineered under high-intensity global hackathons showcasing end-to-end multi-stage operating workflows.',
+    },
     about: { label: 'About Me', title: 'I build the bridge between frontier AI models and production systems.' },
     systems: {
       label: 'System Strengths',

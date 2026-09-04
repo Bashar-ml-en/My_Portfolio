@@ -1246,6 +1246,378 @@ h3 {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   Championship Hackathons Section & Operating Workflows
+   ────────────────────────────────────────────────────────────── */
+
+.hackathons-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(66, 133, 244, 0.12), transparent 30rem),
+    radial-gradient(circle at 90% 85%, rgba(0, 240, 255, 0.14), transparent 28rem),
+    var(--surface-glass);
+}
+
+.hackathons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hackathon-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(var(--space-3), 3.5vw, var(--space-5));
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(17, 24, 39, 0.92), rgba(11, 16, 30, 0.96));
+  border: 1px solid var(--border-glass);
+  border-top: 1px solid rgba(0, 240, 255, 0.35);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.hackathon-card:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 25px 70px -15px rgba(0, 240, 255, 0.18);
+  transform: translateY(-4px);
+}
+
+.hackathon-card-spotlight {
+  border: 1px solid rgba(66, 133, 244, 0.55);
+  border-top: 2px solid #4285f4;
+  background:
+    radial-gradient(circle at 95% 10%, rgba(66, 133, 244, 0.28), transparent 26rem),
+    radial-gradient(circle at 5% 90%, rgba(52, 168, 83, 0.16), transparent 22rem),
+    linear-gradient(135deg, rgba(66, 133, 244, 0.12), rgba(234, 67, 53, 0.04), transparent 55%),
+    rgba(11, 17, 32, 0.96);
+  box-shadow:
+    0 20px 60px -15px rgba(66, 133, 244, 0.35),
+    0 0 0 1px rgba(66, 133, 244, 0.25);
+}
+
+.hackathon-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--space-2);
+}
+
+.hackathon-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.hackathon-event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: var(--text-small);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+}
+
+.hackathon-track-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  color: var(--text-soft);
+  font-size: var(--text-micro);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hackathon-headline h3 {
+  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 4px 0 8px;
+}
+
+.hackathon-tagline {
+  color: var(--text-soft);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  max-width: 900px;
+}
+
+/* Metrics Row */
+.hackathon-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: var(--space-3) 0;
+}
+
+.hackathon-metric-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  box-shadow: inset 0 0 12px rgba(0, 240, 255, 0.04);
+  text-align: center;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.hackathon-metric-chip:hover {
+  background: rgba(0, 240, 255, 0.12);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.metric-chip-value {
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.metric-chip-label {
+  color: var(--accent-cyan);
+  font-size: var(--text-micro);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* Challenge Grid */
+.hackathon-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.challenge-col {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+}
+
+.problem-col {
+  background: rgba(244, 63, 94, 0.06);
+  border-left: 3px solid var(--accent-coral);
+}
+
+.solution-col {
+  background: rgba(16, 185, 129, 0.06);
+  border-left: 3px solid var(--accent-green);
+}
+
+.challenge-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.problem-col .challenge-label {
+  color: var(--accent-coral);
+}
+
+.solution-col .challenge-label {
+  color: var(--accent-green);
+}
+
+.challenge-col p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: var(--text-small);
+  line-height: 1.55;
+}
+
+/* Operating Workflow Visualizer */
+.hackathon-operating-container {
+  margin: var(--space-3) 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgba(6, 9, 18, 0.75);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.operating-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.operating-header h4 {
+  margin: 0;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-size: var(--text-small);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.operating-step-counter {
+  font-family: var(--font-mono);
+  color: var(--accent-green);
+  font-size: var(--text-micro);
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Step Buttons Ribbon */
+.operating-steps-ribbon {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) transparent;
+}
+
+.step-selector-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: var(--text-small);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  flex-shrink: 0;
+}
+
+.step-selector-btn:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.step-selector-btn.active {
+  background: rgba(0, 240, 255, 0.16);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
+}
+
+.step-btn-num {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: var(--text-micro);
+  font-weight: 900;
+  font-family: var(--font-mono);
+}
+
+.step-selector-btn.active .step-btn-num {
+  background: var(--accent-cyan);
+  color: var(--bg);
+}
+
+.step-btn-icon {
+  font-size: 1rem;
+}
+
+/* Active Step Card */
+.active-step-card {
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.06), rgba(99, 102, 241, 0.04));
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  animation: fadeIn 300ms ease-out;
+}
+
+.active-step-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 8px;
+}
+
+.active-step-icon {
+  font-size: 1.8rem;
+}
+
+.active-step-num {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-size: var(--text-micro);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.active-step-header h5 {
+  margin: 2px 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.active-step-desc {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+/* Tech row & Actions */
+.hackathon-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: var(--space-2) 0;
+}
+
+.hackathon-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--space-2);
+}
+
+.hackathon-expanded-panel {
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-glass);
+}
+
+/* ──────────────────────────────────────────────────────────────
    Contact Section — Redesigned Console Card
    ────────────────────────────────────────────────────────────── */
 

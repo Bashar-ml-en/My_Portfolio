@@ -47,6 +47,8 @@ This portfolio is engineered with a **Recruiter-First hierarchy**: technical dec
 
 ## 🌟 Featured Production Flagships
 
+## 🏆 Championship Hackathons & Operating Systems
+
 ### 1. 🛡️ AutoGuard AI — Autonomous AI Red-Teaming & Prompt Hardening Agent
 > **Event**: Built for the *Google All Things Agentic Global Hackathon* (The Taskmaster Track)  
 > **Links**: [⚡ Live Web Console](https://autoguard-ai-agent.vercel.app) • [📦 GitHub Repository](https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent)
@@ -59,18 +61,44 @@ This portfolio is engineered with a **Recruiter-First hierarchy**: technical dec
   - 💻 **Developer CLI Tool**: `python -m backend.app.cli audit --domain fintech --threshold 90`.
   - 🤖 **Native GitHub Action**: [`action.yml`](https://github.com/Bashar-ml-en/Auto_Guard_AI_Agent/blob/main/action.yml) for automated pull-request security gates.
 
-```mermaid
-flowchart LR
-    Client["Client / CLI / GitHub Action"] --> Engine["FastAPI DAG Taskmaster"]
-    Engine --> RedTeam["Gemini 3.7 Flash\n(Adversarial Prober)"]
-    RedTeam --> Armor["Model Armor\n(Self-Healing Loop)"]
-    Armor --> CloudRun["Google Cloud Run\n(Deployed Microservice)"]
-    Armor --> Firestore[("Google Cloud Firestore\n(Audit Memory Bank)")]
+```
+Operating Pipeline: Threat Ingestion ──> Adversarial Synthesis (Gemini 3.7 Flash) ──> Sandboxed Batch Probing ──> Vulnerability Critic ──> Evolutionary Model Armor ──> Cloud Run Packaging
 ```
 
 ---
 
-### 2. 🌧️ Malaysian Hourly Rain Prediction System
+### 2. 📊 SmartFlow One — AI-Powered Financial Document Intelligence
+> **Event**: Built for the *Experian Digital Transformation Hackathon* (Lab 1: Digital Transformation & Operations)  
+> **Links**: [📦 GitHub Repository](https://github.com/vaiyud/ai-powered-financial-report-analysis)
+
+* **Zero-PII Leakage Engine**: Automatically detects and masks NRICs, phone numbers, emails, IBANs, and credit card numbers client-side before any data leaves the browser, enforcing strict **PDPA Malaysia** compliance by default.
+* **Deterministic Metric Extraction**: Google Gemini 2.5 Flash extracts Revenue, Operating Expenses, Net Profit, and Cash Flow; percentage changes are computed deterministically.
+* **3-Tier Risk Severity Matrix**: AI generates classified risk levels with page-level citations and cited mitigation strategies.
+* **Executive Voice Narration**: Web Speech API condenses core findings into a ~75-word audio briefing narrated aloud in ~30 seconds.
+
+```
+Operating Pipeline: Upload Doc (PDF/XLSX) ──> Client-Side PII Masking (PDPA) ──> FAISS Vector Indexing ──> Gemini 2.5 Flash Metric Extraction ──> 3-Tier Risk Matrix ──> Voice Narration
+```
+
+---
+
+### 3. 🇲🇾 RakyatOS — Grounded Civic & Anti-Scam Intelligence OS
+> **Event**: Built for *RektHackathon 2026* (AI Civic Infrastructure & Fraud Defense)  
+> **Links**: [⚡ Live Web Demo](https://rakyatos.vercel.app) • [📦 GitHub Repository](https://github.com/rekthackathon/rakyatos)
+
+* **Proactive ScamShield Screening**: Identifies fraudulent SMS and messages impersonating government agencies by cross-checking against PDRM Semak Mule and NSRC 997 fraud registries before citizens fall victim to Malaysia's RM2.97B online scam epidemic.
+* **Strict Anti-Hallucination Gate**: Every factual answer is anchored to a verified official agency registry (`sources.json`) with timestamps; unverified claims are rejected before reaching users.
+* **Bilingual Situational Routing**: Understands natural life situations in Bahasa Melayu and English, routing users to legitimate government assistance portals with human-in-the-loop consent.
+
+```
+Operating Pipeline: User Situation (BM/EN) ──> ScamShield Threat Filter ──> Official Sources Registry (sources.json) ──> Anti-Hallucination Gate ──> Grounded Action Plan
+```
+
+---
+
+## 🌟 Featured Production ML Systems
+
+### 4. 🌧️ Malaysian Hourly Rain Prediction System
 > **Category**: Full-Stack ML Production System  
 > **Links**: [⚡ Live Web App](https://rain-today-prediction.vercel.app) • [📦 GitHub Repository](https://github.com/Bashar-ml-en/RainToday-Prediction)
 

@@ -4,12 +4,14 @@ import { BackToTop } from './components/BackToTop.jsx'
 import { GitHubStats } from './components/GitHubStats.jsx'
 import { ProfilePhoto } from './components/ProfilePhoto.jsx'
 import { Button, GlassCard, PipelineMotif, SectionHeading } from './components/Primitives.jsx'
+import { HackathonCard } from './components/HackathonCard.jsx'
 import { ProjectCard } from './components/ProjectCard.jsx'
 import { CertificateCard } from './components/CertificateCard.jsx'
 import { CertificateModal } from './components/CertificateModal.jsx'
 import { ScrollProgress } from './components/ScrollProgress.jsx'
 import { TypeWriter } from './components/TypeWriter.jsx'
 import { githubStatsUrl, profile } from './data/profile.ts'
+import { hackathons } from './data/hackathons.ts'
 import { filters, projects } from './data/projects.ts'
 import { skillGroups } from './data/skills.ts'
 import { certificateCategories, certificates } from './data/certificates.ts'
@@ -286,6 +288,21 @@ function App() {
               <span>{stat.label}</span>
             </article>
           ))}
+        </section>
+
+        {/* Championship Hackathons & Operating Workflows */}
+        <section className="section-panel hackathons-section reveal" id="hackathons" aria-labelledby="hackathons-title">
+          <SectionHeading
+            split
+            label={profile.sections.hackathons.label}
+            title={profile.sections.hackathons.title}
+            text={profile.sections.hackathons.text}
+          />
+          <div className="hackathons-grid" aria-live="polite">
+            {hackathons.map((hackathon, index) => (
+              <HackathonCard hackathon={hackathon} index={index} key={hackathon.id} />
+            ))}
+          </div>
         </section>
 
         {/* Projects (Recruiter-First: Immediate high-value proof) */}
