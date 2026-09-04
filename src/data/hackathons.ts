@@ -96,6 +96,7 @@ export const hackathons: HackathonProject[] = [
     track: 'Lab 1: Digital Transformation & Operations',
     badgeColor: 'linear-gradient(135deg, #00F0FF, #3B82F6 60%, #6366F1)',
     repoUrl: 'https://github.com/vaiyud/ai-powered-financial-report-analysis',
+    liveDemo: 'https://ai-powered-financial-report-analysi.vercel.app',
     tagline: 'Financial document intelligence platform that automatically scrubs PII for PDPA compliance and generates CFO-level executive insights with Google Gemini.',
     problem: 'Financial teams spend hours manually extracting metrics and identifying risks across dense reports, while strict PDPA regulations forbid uploading unmasked personal data to AI.',
     solution: 'Engineered an end-to-end processing pipeline that detects and masks PII client-side before indexing with FAISS and synthesizing financial insights with Gemini 2.5 Flash.',
