@@ -75,7 +75,7 @@ export function ProjectCard({ project, labels, index }) {
     <GlassCard
       as="article"
       ref={cardRef}
-      className={`project-card cursor-glow ${project.flagship ? 'flagship-card' : ''}`}
+      className={`project-card cursor-glow ${project.flagship ? 'flagship-card' : ''} ${project.repo === 'Auto_Guard_AI_Agent' ? 'google-hackathon-card' : ''}`}
       style={{ '--stagger': `${index * 60}ms` }}
       onPointerMove={handlePointerMove}
       onClick={handleCardClick}
@@ -93,7 +93,11 @@ export function ProjectCard({ project, labels, index }) {
       <div className="project-card-topline">
         <Badge>{project.category}</Badge>
         {project.status && <Badge className="badge-status">{project.status}</Badge>}
-        {project.flagship && <Badge className="badge-strong">Flagship System</Badge>}
+        {project.repo === 'Auto_Guard_AI_Agent' ? (
+          <Badge className="badge-google-hackathon">🌟 PREMIER FLAGSHIP • GOOGLE HACKATHON</Badge>
+        ) : project.flagship ? (
+          <Badge className="badge-strong">Flagship System</Badge>
+        ) : null}
       </div>
 
       <div className="timeline-preview" aria-label={`${project.title} pipeline visualization`}>
@@ -126,14 +130,14 @@ export function ProjectCard({ project, labels, index }) {
       </div>
 
       <div className="project-actions">
-        <Button href={`https://github.com/Bashar-ml-en/${project.repo}`} target="_blank" rel="noreferrer" variant="ghost">
-          {labels.viewCodeLabel}
-        </Button>
         {project.liveDemo && (
           <Button href={project.liveDemo} target="_blank" rel="noreferrer" variant="primary">
-            {labels.liveDemoLabel}
+            ⚡ Live Web App
           </Button>
         )}
+        <Button href={`https://github.com/Bashar-ml-en/${project.repo}`} target="_blank" rel="noreferrer" variant="ghost">
+          📦 GitHub Repo
+        </Button>
         <Button
           as="button"
           type="button"
@@ -142,7 +146,7 @@ export function ProjectCard({ project, labels, index }) {
           aria-controls={detailsId}
           onClick={toggleExpanded}
         >
-          {expanded ? labels.collapseLabel : labels.expandLabel}
+          {expanded ? labels.collapseLabel : '📐 Architecture & Features'}
         </Button>
       </div>
 

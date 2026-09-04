@@ -91,6 +91,7 @@ function App() {
   const [activeCertCategory, setActiveCertCategory] = useState('All')
   const [selectedCertModal, setSelectedCertModal] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [copyStatus, setCopyStatus] = useState(null)
 
   const sectionIds = useMemo(() => profile.nav.map((item) => item.href.replace('#', '')), [])
   const activeSection = useActiveSection(sectionIds)
@@ -279,33 +280,30 @@ function App() {
           ))}
         </section>
 
-        {/* About */}
-        <section className="section-panel about-section reveal" id="about" aria-labelledby="about-title">
-          <div className="section-copy">
-            <p className="section-label">{profile.sections.about.label}</p>
-            <h2 id="about-title">{profile.sections.about.title}</h2>
-            <p>{profile.bio}</p>
-          </div>
-          <GitHubStats
-            src={githubStatsUrl}
-            alt={profile.ui.githubStatsAlt}
-            fallbackTitle={profile.ui.githubStatsFallbackTitle}
-            fallbackText={profile.ui.githubStatsFallbackText}
+        {/* Projects (Recruiter-First: Immediate high-value proof) */}
+        <section className="section-panel projects-section reveal" id="projects" aria-labelledby="projects-title">
+          <SectionHeading
+            split
+            label={profile.sections.projects.label}
+            title={profile.sections.projects.title}
+            text={profile.sections.projects.text}
           />
-        </section>
-
-        {/* Systems */}
-        <section className="section-panel systems-section reveal" id="systems" aria-labelledby="systems-title">
-          <SectionHeading label={profile.sections.systems.label} title={profile.sections.systems.title} />
-          <PipelineMotif compact className="section-divider-motif" />
-          <div className="capability-grid">
-            {profile.capabilities.map((capability, index) => (
-              <GlassCard as="article" className="capability-card" key={capability.title} style={{ '--stagger': `${index * 60}ms` }}>
-                <span className="capability-icon">{capability.icon}</span>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <h3>{capability.title}</h3>
-                <p>{capability.text}</p>
-              </GlassCard>
+          <div className="filter-row" aria-label="Project category filters">
+            {filters.map((filter) => (
+              <button
+                className={filter === activeFilter ? 'filter-button active' : 'filter-button'}
+                key={filter}
+                type="button"
+                aria-pressed={filter === activeFilter}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+          <div className="project-grid" aria-live="polite">
+            {visibleProjects.map((project, index) => (
+              <ProjectCard project={project} labels={profile.ui} index={index} key={project.repo} />
             ))}
           </div>
         </section>
@@ -342,30 +340,18 @@ function App() {
           </div>
         </section>
 
-        {/* Projects */}
-        <section className="section-panel projects-section reveal" id="projects" aria-labelledby="projects-title">
-          <SectionHeading
-            split
-            label={profile.sections.projects.label}
-            title={profile.sections.projects.title}
-            text={profile.sections.projects.text}
-          />
-          <div className="filter-row" aria-label="Project category filters">
-            {filters.map((filter) => (
-              <button
-                className={filter === activeFilter ? 'filter-button active' : 'filter-button'}
-                key={filter}
-                type="button"
-                aria-pressed={filter === activeFilter}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-          <div className="project-grid" aria-live="polite">
-            {visibleProjects.map((project, index) => (
-              <ProjectCard project={project} labels={profile.ui} index={index} key={project.repo} />
+        {/* Systems & Engineering Capabilities */}
+        <section className="section-panel systems-section reveal" id="systems" aria-labelledby="systems-title">
+          <SectionHeading label={profile.sections.systems.label} title={profile.sections.systems.title} />
+          <PipelineMotif compact className="section-divider-motif" />
+          <div className="capability-grid">
+            {profile.capabilities.map((capability, index) => (
+              <GlassCard as="article" className="capability-card" key={capability.title} style={{ '--stagger': `${index * 60}ms` }}>
+                <span className="capability-icon">{capability.icon}</span>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{capability.title}</h3>
+                <p>{capability.text}</p>
+              </GlassCard>
             ))}
           </div>
         </section>
@@ -410,6 +396,21 @@ function App() {
           />
         )}
 
+        {/* About & GitHub Live Stats */}
+        <section className="section-panel about-section reveal" id="about" aria-labelledby="about-title">
+          <div className="section-copy">
+            <p className="section-label">{profile.sections.about.label}</p>
+            <h2 id="about-title">{profile.sections.about.title}</h2>
+            <p>{profile.bio}</p>
+          </div>
+          <GitHubStats
+            src={githubStatsUrl}
+            alt={profile.ui.githubStatsAlt}
+            fallbackTitle={profile.ui.githubStatsFallbackTitle}
+            fallbackText={profile.ui.githubStatsFallbackText}
+          />
+        </section>
+
         {/* Contact */}
         <section className="contact-section reveal" id="contact" aria-labelledby="contact-title">
           <div>
@@ -430,19 +431,49 @@ function App() {
             </div>
 
             <dl className="contact-details-list">
-              <div>
+              <div className="contact-item-row">
                 <dt>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 7l-10 7L2 7" /></svg>
                   EMAIL
                 </dt>
-                <dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd>
+                <dd>
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                  <button
+                    type="button"
+                    className="copy-btn"
+                    title="Copy Email"
+                    aria-label="Copy Email to clipboard"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(profile.email)
+                      setCopyStatus('email')
+                      setTimeout(() => setCopyStatus(null), 2000)
+                    }}
+                  >
+                    {copyStatus === 'email' ? '✓ Copied' : '📋 Copy'}
+                  </button>
+                </dd>
               </div>
-              <div>
+              <div className="contact-item-row">
                 <dt>
                   <PhoneIcon />
                   PHONE
                 </dt>
-                <dd><a href={`tel:${profile.phone}`}>{profile.phone}</a></dd>
+                <dd>
+                  <a href={`tel:${profile.phone}`}>{profile.phone}</a>
+                  <button
+                    type="button"
+                    className="copy-btn"
+                    title="Copy Phone"
+                    aria-label="Copy Phone number to clipboard"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(profile.phone)
+                      setCopyStatus('phone')
+                      setTimeout(() => setCopyStatus(null), 2000)
+                    }}
+                  >
+                    {copyStatus === 'phone' ? '✓ Copied' : '📋 Copy'}
+                  </button>
+                </dd>
               </div>
               <div>
                 <dt>

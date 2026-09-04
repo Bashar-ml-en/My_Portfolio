@@ -1111,6 +1111,36 @@ h3 {
     rgba(14, 19, 31, 0.85);
 }
 
+.google-hackathon-card {
+  position: relative;
+  border-color: rgba(66, 133, 244, 0.45);
+  background:
+    radial-gradient(circle at 92% 10%, rgba(66, 133, 244, 0.22), transparent 25rem),
+    radial-gradient(circle at 8% 90%, rgba(52, 168, 83, 0.14), transparent 22rem),
+    linear-gradient(135deg, rgba(66, 133, 244, 0.12), rgba(234, 67, 53, 0.04), transparent 50%),
+    rgba(14, 19, 31, 0.92);
+  box-shadow:
+    0 12px 40px -10px rgba(66, 133, 244, 0.25),
+    0 0 0 1px rgba(66, 133, 244, 0.2);
+}
+
+.google-hackathon-card:hover {
+  border-color: rgba(66, 133, 244, 0.7);
+  box-shadow:
+    0 20px 50px -10px rgba(66, 133, 244, 0.35),
+    0 0 30px rgba(66, 133, 244, 0.25);
+}
+
+.badge-google-hackathon {
+  border-color: transparent !important;
+  background: linear-gradient(135deg, #4285F4, #EA4335 35%, #FBBC05 70%, #34A853) !important;
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 16px rgba(66, 133, 244, 0.4);
+  letter-spacing: 0.06em;
+}
+
 .timeline-preview {
   margin-bottom: var(--space-3);
   border: 1px solid var(--border-glass);
@@ -1317,6 +1347,35 @@ h3 {
 
 .contact-details-list dd a:hover {
   color: var(--accent-cyan);
+}
+
+.contact-item-row dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-family: inherit;
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.copy-btn:hover {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.3);
+  transform: translateY(-1px);
 }
 
 .contact-status-row dt {

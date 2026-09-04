@@ -20,9 +20,48 @@ export type Project = {
   architecture?: string
 }
 
-export const filters = ['All', 'Full-Stack ML', 'Classification', 'NLP', 'Time Series', 'FinTech', 'Web App']
+export const filters = ['All', 'AI Agents & LLMs', 'Full-Stack ML', 'Classification', 'NLP', 'Time Series', 'FinTech', 'Web App']
 
 export const projects: Project[] = [
+  {
+    title: 'AutoGuard AI — Autonomous AI Red-Teaming & Prompt Hardening Agent',
+    repo: 'Auto_Guard_AI_Agent',
+    liveDemo: 'https://autoguard-ai-agent.vercel.app',
+    status: 'COMPLETED PRODUCTION SYSTEM',
+    description:
+      'Autonomous SecOps Taskmaster agent built for the Google All Things Agentic Hackathon. Features a 6-stage DAG state machine that red-teams LLMs, executes parallel sandboxed probing with Gemini 3.7 Flash, and self-heals system prompts via evolutionary Model Armor.',
+    details:
+      'Engineered an enterprise DevSecOps toolchain combining a reactive web console, standalone developer CLI, and native GitHub Action. Automatically synthesizes 50+ adversarial attack vectors mapped to OWASP LLM Top 10 standards, boosting safety resilience from 28.4% to 98.6% (Grade A+) with 100% automated test coverage.',
+    tech: [
+      'Python',
+      'Google Gemini 3.7 Flash',
+      'Google GenAI SDK',
+      'FastAPI',
+      'Google Cloud Run',
+      'Google Cloud Firestore',
+      'Tailwind CSS',
+      'GitHub Actions',
+      'Pytest',
+      'OWASP LLM Top 10'
+    ],
+    metrics: [
+      { label: 'Safety Resilience', value: 98.6, suffix: '%' },
+      { label: 'Vulnerability Delta', value: 70.2, suffix: '%+' },
+      { label: 'Automated Tests', value: 100, suffix: '%' },
+      { label: 'Audit Speed', value: 30, suffix: 's' }
+    ],
+    category: 'Autonomous AI Agents & SecOps',
+    filter: 'AI Agents & LLMs',
+    flagship: true,
+    features: [
+      '⚡ Autonomous 6-Stage DAG Execution Graph with Google 4-color laser sweeps',
+      '💥 Live Red-Team vs Model Armor Combat Duel Arena with measured confidence',
+      '📜 Real Git-Style Prompt Diff Viewer displaying redlined deletions (-3) and green additions (+12)',
+      '🤖 Native CI/CD GitHub Action (action.yml) & Standalone CLI (python -m backend.app.cli audit)',
+      '🏷️ OWASP LLM Top 10 (2025 Standard) threat vector synthesis and automated clearance passport'
+    ],
+    architecture: 'Client Console / GitHub Action ──> FastAPI DAG Engine ──> Gemini 3.7 Flash Red-Team ──> Evolutionary Prompt Optimizer ──> Google Cloud Run'
+  },
   {
     title: 'Malaysian Hourly Rain Prediction System',
     repo: 'RainToday-Prediction',

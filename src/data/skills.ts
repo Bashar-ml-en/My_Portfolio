@@ -48,6 +48,14 @@ export const techMetaMap: Record<string, { color: string; icon: string }> = {
   'Docker (familiar)': { color: '#2496ED', icon: '🐳' },
   'Uvicorn': { color: '#7C3AED', icon: '🦄' },
   'REST APIs': { color: '#10B981', icon: '🔌' },
+  'Google Gemini 3.7 Flash': { color: '#4285F4', icon: '✨' },
+  'Google GenAI SDK': { color: '#34A853', icon: '🤖' },
+  'Google Cloud Run': { color: '#4285F4', icon: '☁️' },
+  'Google Cloud Firestore': { color: '#FBBC05', icon: '🔥' },
+  'Autonomous AI Agents': { color: '#00F0FF', icon: '⚡' },
+  'OWASP LLM Top 10': { color: '#EA4335', icon: '🛡️' },
+  'Model Armor': { color: '#00E5A3', icon: '🔒' },
+  'Pytest': { color: '#00E5A3', icon: '🧪' },
 }
 
 export function getTechMeta(techName: string) {
@@ -55,6 +63,17 @@ export function getTechMeta(techName: string) {
 }
 
 export const skillGroups: SkillGroup[] = [
+  {
+    category: 'Autonomous AI & LLM Systems',
+    items: [
+      { name: 'Google Gemini 3.7 Flash', color: '#4285F4', icon: '✨' },
+      { name: 'Google GenAI SDK', color: '#34A853', icon: '🤖' },
+      { name: 'Autonomous AI Agents', color: '#00F0FF', icon: '⚡' },
+      { name: 'Google Cloud Run', color: '#4285F4', icon: '☁️' },
+      { name: 'OWASP LLM Top 10', color: '#EA4335', icon: '🛡️' },
+      { name: 'Pytest', color: '#00E5A3', icon: '🧪' },
+    ],
+  },
   {
     category: 'Languages',
     items: [
