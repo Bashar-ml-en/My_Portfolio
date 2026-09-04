@@ -53,6 +53,26 @@ export function HackathonCard({ hackathon, index }) {
         </div>
       </div>
 
+      {/* Hackathon Event Photo Showcase if present */}
+      {hackathon.image && (
+        <div className="hackathon-photo-wrapper">
+          <div className="hackathon-photo-container">
+            <img
+              src={hackathon.image}
+              alt={hackathon.imageCaption || hackathon.title}
+              className="hackathon-photo"
+              loading="lazy"
+              decoding="async"
+            />
+            {hackathon.imageCaption && (
+              <div className="hackathon-photo-overlay">
+                <span>{hackathon.imageCaption}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Operating Workflow Visualizer */}
       <div className="hackathon-operating-container">
         <div className="operating-header">

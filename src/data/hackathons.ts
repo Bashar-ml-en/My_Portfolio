@@ -13,6 +13,8 @@ export type HackathonProject = {
   badgeColor: string
   repoUrl: string
   liveDemo?: string
+  image?: string
+  imageCaption?: string
   tagline: string
   problem: string
   solution: string
@@ -97,6 +99,8 @@ export const hackathons: HackathonProject[] = [
     badgeColor: 'linear-gradient(135deg, #00F0FF, #3B82F6 60%, #6366F1)',
     repoUrl: 'https://github.com/vaiyud/ai-powered-financial-report-analysis',
     liveDemo: 'https://ai-powered-financial-report-analysi.vercel.app',
+    image: '/hackathons/smartflow-experian-devleague.jpg',
+    imageCaption: '🏆 DevLeague 2026 Hackathon Team — Experian AI-Powered Financial Document Intelligence (TalentLabs)',
     tagline: 'Financial document intelligence platform that automatically scrubs PII for PDPA compliance and generates CFO-level executive insights with Google Gemini.',
     problem: 'Financial teams spend hours manually extracting metrics and identifying risks across dense reports, while strict PDPA regulations forbid uploading unmasked personal data to AI.',
     solution: 'Engineered an end-to-end processing pipeline that detects and masks PII client-side before indexing with FAISS and synthesizing financial insights with Gemini 2.5 Flash.',
@@ -162,6 +166,8 @@ export const hackathons: HackathonProject[] = [
     badgeColor: 'linear-gradient(135deg, #10B981, #06B6D4 50%, #3B82F6)',
     repoUrl: 'https://github.com/rekthackathon/rakyatos',
     liveDemo: 'https://rakyatos.vercel.app',
+    image: '/hackathons/rakyatos-microsoft-rekthackathon.png',
+    imageCaption: '🏆 RektHackathon 2026 Team at Microsoft — RakyatOS Grounded Civic AI & Anti-Scam Platform (Claw Collective)',
     tagline: 'Grounded bilingual intelligence layer helping everyday citizens safely navigate government services while proactively screening impersonation scams.',
     problem: 'Malaysians lost RM2.97B to online scams in 2025 due to fragmented government portals and rampant SMS/message impersonations. Victims usually seek help after being hit.',
     solution: 'Pre-screens messages with ScamShield, anchors every single factual answer to verified official registries (Semak Mule, NSRC 997, MyGOV), and rejects hallucinations before reaching users.',
